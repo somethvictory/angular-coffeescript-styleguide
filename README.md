@@ -290,7 +290,6 @@
     *Why?*: Reusing controllers with several views is brittle and good end to end (e2e) test coverage is required to ensure stability across large applications.
 
 ### Assigning Controllers
-###### [Style [Y038](#style-y038)]
 
   - When a controller must be paired with a view and either component may be re-used by other controllers or views, define controllers along with their routes. 
     
@@ -782,7 +781,6 @@
 ### Overall Guidelines
 
 ### Layout
-###### [Style [Y151](#style-y151)]
 
   - Place components that define the overall layout of the application in a folder named `layout`. These may include a shell view and controller may act as the container for the app, navigation, menus, content areas, and other regions. 
 
