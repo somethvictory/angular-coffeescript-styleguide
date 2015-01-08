@@ -1,6 +1,6 @@
 # AngularJS Coffeescript Style Guide
 
-*AngularJS Coffeescript style guide for teams by [@yoolk](//github.com/yoolk)*
+*AngularJS Coffeescript style guide for [@Yoolk Team](//github.com/yoolk)*
 
 
 ## Single Responsibility
@@ -17,10 +17,10 @@
     .factory('someFactory', someFactory)
     
   SomeController = ->
-    # code
+    # implementation details
 
   someFactory = ->
-    # code
+    # implementation details
   
   ```
     
@@ -43,7 +43,7 @@
     .controller('SomeController', SomeController)
 
   SomeController = ->
-    # code
+    # implementation details
   ```
 
   ```coffeescript
@@ -55,11 +55,8 @@
     .factory('someFactory', someFactory)
     
   someFactory = ->
-    # code
+    # implementation details
   ```
-
-**[Back to top](#table-of-contents)**
-
 
 ## Modules
 
@@ -83,10 +80,10 @@
   # recommended
   angular
     .module('app', [
-        'ngAnimate',
-        'ngRoute',
-        'app.shared',
-        'app.dashboard'
+      'ngAnimate',
+      'ngRoute',
+      'app.shared',
+      'app.dashboard'
     ])
   ```
 
@@ -102,7 +99,7 @@
   app.controller('SomeController', SomeController)
   
   SomethController = ->
-    # code
+    # implementation details
   ```
 
   ```coffeescript
@@ -112,7 +109,7 @@
     .controller('SomeController', SomeController)
   
   SomeController = ->
-    # code
+    # implementation details
   ```
 
 ### Setting vs Getting
@@ -135,10 +132,10 @@
   angular
     .module('app')
     .controller('Dashboard', ->
-      #code
+      # implementation details
     )
     .factory('logger', ->
-      # code
+      # implementation details
     )
   ```
 
@@ -151,7 +148,7 @@
     .controller('Dashboard', Dashboard)
 
   Dashboard = ->
-    # code
+    # implementation details
   ```
 
   ```coffeescript
@@ -161,7 +158,7 @@
     .factory('logger', logger)
 
   logger = -> 
-    # code
+    # implementation details
   ```
 
 ## Controllers
@@ -179,14 +176,14 @@
   ```html
   <!-- avoid -->
   <div ng-controller='Customer'>
-      {{ name }}
+    {{ name }}
   </div>
   ```
 
   ```html
   <!-- recommended -->
   <div ng-controller='Customer as customer'>
-     {{ customer.name }}
+    {{ customer.name }}
   </div>
   ```
 
@@ -205,7 +202,7 @@
   Customer = ($scope) ->
     $scope.name = {}
     $scope.sendMessage = ->
-      # code
+      # implementation details
   ```
 
   ```coffeescript
@@ -213,7 +210,7 @@
   Customer = ->
     @name = {}
     @sendMessage = ->
-      # code
+      # implementation details
   ```
 
 ### Bindable Members Up Top
@@ -228,11 +225,11 @@
   # avoid
   Sessions = ->
     @gotoSession = ->
-      # code
+      # implementation details
     @refresh = ->
-      # code
+      # implementation details
     @search = ->
-      # code
+      # implementation details
     @sessions = []
     @title = 'Sessions'
   ```
@@ -249,11 +246,11 @@
     ################  
     
     @gotoSession = ->
-      # code
+      # implementation details
     @refresh = ->
-      # code
+      # implementation details
     @search = ->
-      # code
+      # implementation details
     @sessions = []
     @title = 'Sessions'
   
@@ -363,10 +360,10 @@
     someValue = ''
 
     save = ->
-      # code
+      # implementation details
 
     validate = ->
-      #code
+      # implementation details
       
     service = 
       save: save
@@ -389,10 +386,10 @@
     return service
     
     save = ->
-      # code
+      # implementation details
 
     validate = ->
-      #code
+      # implementation details
   ```
 
 ## Directives
@@ -406,7 +403,7 @@
 
   ```coffeescript
   # avoid
-  #directives.js.coffee
+  # directives.js.coffee
 
   angular
     .module('app.widgets')
@@ -427,7 +424,7 @@
     # implementation details
     
   sharedSpinner = ->
-    #implementation details
+    # implementation details
   ```
 
   ```coffeescript
@@ -521,7 +518,7 @@
     return directive
     
     link = (scope, element, attrs)->
-      # code
+      # implementation details
   ```
 
   ```html
@@ -545,7 +542,7 @@
     return directive
     
     link = (scope, element, attrs)->
-      # code
+      # implementation details
   ```
 
 ### Directives and ControllerAs
@@ -621,7 +618,7 @@
       .controller('Dashboard', Dashboard)
 
     Dashboard = (common, dataservice)->
-      # code
+      # implementation details
     ```
 
     This code may produce mangled variables when minified and thus cause runtime errors.
@@ -647,7 +644,7 @@
       .module('app')
       .controller('Dashboard', 
           ['$location', '$routeParams', 'common', 'dataservice', ($location, $routeParams, common, dataservice)->
-            #code
+            # implementation details
           ])      
     ```
 
@@ -659,7 +656,7 @@
          ['$location', '$routeParams', 'common', 'dataservice', Dashboard])
       
     Dashboard = ($location, $routeParams, common, dataservice)->
-      # code
+      # implementation details
     ```
 
     ```coffeescript
@@ -671,7 +668,7 @@
     Dashboard.$inject = ['$location', '$routeParams', 'common', 'dataservice'];
      
     Dashboard = ($location, $routeParams, common, dataservice)-> 
-      # code
+      # implementation details
     ```
 
     Note: When your function is below a return statement the $inject may be unreachable (this may happen in a directive). You can solve this by either moving the $inject above the return statement or by using the alternate array injection syntax. 
@@ -686,7 +683,7 @@
       DashboardPanel.$inject = ['logger'] #Unreachable
       
       DashboardPanel = (logger)->
-        # code
+        # implementation details
     ```
 
     ```coffeescript
@@ -697,7 +694,7 @@
       return { controller: DashboardPanel }
       
       DashboardPanel = (logger)->
-        # code
+        # implementation details
     ```
 
 ## Naming
