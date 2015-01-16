@@ -604,29 +604,6 @@
 
 ## Manual Annotating for Dependency Injection
 
-### UnSafe from Minification
-
-  - Avoid using the shortcut syntax of declaring dependencies without using a minification-safe approach.
-  
-    *Why?*: The parameters to the component (e.g. controller, factory, etc) will be converted to mangled variables. For example, `common` and `dataservice` may become `a` or `b` and not be found by AngularJS.
-
-    ```coffeescript
-    # avoid - not minification-safe
-    angular
-      .module('app')
-      .controller('Dashboard', Dashboard)
-
-    Dashboard = (common, dataservice)->
-      # implementation details
-    ```
-
-    This code may produce mangled variables when minified and thus cause runtime errors.
-
-    ```javascript
-    # avoid - not minification-safe
-    angular.module('app').controller('Dashboard', d)function d(a, b) { }
-    ```
-
 ### Manually Identify Dependencies
 
   - Use `$inject` to manually identify your dependencies for AngularJS components.
