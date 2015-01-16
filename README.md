@@ -98,7 +98,7 @@
   app = angular.module('app')
   app.controller('SomeController', SomeController)
   
-  SomethController = ->
+  SomeController = ->
     # implementation details
   ```
 
